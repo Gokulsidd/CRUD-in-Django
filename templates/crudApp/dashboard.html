@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% extends 'crudApp/base.html' %} {% block info %}
+  <h1>Employee Details</h1>
+  <table>
+    <thead>
+      <th>Employee ID</th>
+      <th>Employee Name</th>
+      <th>Employee Age</th>
+      <th>Employee Number</th>
+    </thead>
+    <tr>
+      {% for item in employee%}
+      <td>{{item.emp_id}}</td>
+      <td>{{item.emp_name}}</td>
+      <td>{{item.emp_age}}</td>
+      <td>{{item.emp_pnumber}}</td>
+      <td>
+        <a href="/update/{{item.id}}">Update</a>
+        <a href="/delete/{{item.id}}">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <a href="/create"><button type="button">Add Employee</button></a>
+  {% endblock info %}
+</html>
